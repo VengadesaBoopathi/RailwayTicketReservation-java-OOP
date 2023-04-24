@@ -51,44 +51,26 @@ using namespace std;
        }
     };
     
+    string username="venki",password="1234";
 class admin
 { 
     public:    
-       string username,password,name,gender;
-       void adminregister()
-       {
-       ofstream file("adminloginDetails.txt",ios::app);
-       cout<<"enter your admin id  "<<endl;
-       cin>>username;
-       cout<<"enter your pvssword\n";
-       cin>>password;
-       cout<<"enter your name\n";
-       cin>>name;
-       cout<<"enter your gender\n";
-       cin>>gender;
-       file<<username<<" "<<password<<"\n";
-       file.close();
-       }
     int adminlogin()
        {
         string username1,password1;
-        string username12,password12;
-
         cout<<"enter your adminid   "<<endl;
         cin>>username1;
         cout<<"enter your password\n";
         cin>>password1;
         ifstream file("adminloginDetails.txt");
-        while(file>>username12>>password12)
-        {
-            if(username1==username12&&password1==password12)
+        if(username==username1&&password==password1)
             {
                 return 1;
-                break;
+            }
+            else{
+                return 0;
             }
         }
-                return 0;
-       }
        void addtrain()
        { 
             struct Traindetails{
@@ -110,7 +92,7 @@ class admin
             cin>>o.arrival_time;
             cout<<"enter the number_of_available_seats\n";
             cin>>o.number_of_available_seats;
-            trainfile<<o.origin_station<<" "<<o.destination_station<<" "<<o.train_number<<" "<<o.departure_time<<" "<<o.arrival_time<<" "<<o.train_name<<" "<<o.number_o
+            trainfile<<o.origin_station<<" "<<o.destination_station<<" "<<o.train_number<<" "<<o.departure_time<<" "<<o.arrival_time<<" "<<o.train_name<<" ";
         }
 };
 class Train
@@ -265,16 +247,7 @@ int main()
                                     }
                                     else{
                                         cout<<"LOGIN DETAILS NOT FOUND \n";
-                                        cout<<"PRESS 1 TO  SIGN IN ELSE IT WILL EXIT !";
-                                        cin>>v;
-                                        if(v==1)
-                                        {
-                                            admin obj;
-                                            obj.adminregister();
-                                        }
-                                        else{
-                                            break;
-                                        }
+                                        cout<<"TRY ONCE";
                                     }
                                 }
                             case 0:
