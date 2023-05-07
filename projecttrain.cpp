@@ -1,16 +1,11 @@
-// a
-
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
 #include <conio.h>
-// #include <Windows.h>
+#include <cstdlib>
 
-// #include <stdlib.h>
-
-// #include <conio.h>
 using namespace std;
-    class login
+class login
     {
        public:
        
@@ -50,8 +45,8 @@ using namespace std;
                 return 0;
        }
     };
-    
-    string username="venki",password="1234";
+
+string username="venki",password="1234";    
 class admin
 { 
     public:    
@@ -78,21 +73,27 @@ class admin
             };
             ofstream trainfile("trinfromMe.txt",ios::app);
             Traindetails o;
+            cout<<"enter the train_number \n";
+            cin>>o.train_number;
             cout<<"enter the train_name,\n";
             cin>>o.train_name;
             cout<<"enter the origin_station\n";
             cin>>o.origin_station;
             cout<<"enter the destination_station\n";
             cin>>o.destination_station;
-            cout<<"enter the train_number \n";
-            cin>>o.train_number;
             cout<<"enter the departure_time,\n";
             cin>>o.departure_time; 
             cout<<"enter the arrival_time, \n";
             cin>>o.arrival_time;
             cout<<"enter the number_of_available_seats\n";
             cin>>o.number_of_available_seats;
-            trainfile<<o.origin_station<<" "<<o.destination_station<<" "<<o.train_number<<" "<<o.departure_time<<" "<<o.arrival_time<<" "<<o.train_name<<" ";
+            trainfile<<o.origin_station<<" "<<o.destination_station<<" "<<o.train_number<<" "<<o.departure_time<<" "<<o.arrival_time<<" "<<o.train_name<<" "<<o.number_of_available_seats<<"\n";
+        }
+        void deletedata()
+        {
+            int train_number;
+            cout<<"enter train number delete\n";
+            cin>>train_number;
         }
 };
 class Train
@@ -163,7 +164,7 @@ int main()
                 while(1)
                 {
                     system("cls");
-                    cout<<"ENTER \n1FOR USER LOGIN \n0 FOR EXIT \n ";
+                    cout<<"ENTER \n1FOR USER LOGIN \n0 FOR return to menu  -1 to exit \n ";
                     cin>>choice1;
                     switch(choice1)                                                 
                             {
@@ -182,8 +183,8 @@ int main()
                                         if(v==1)
                                         {
                                             Train obj;
-
                                             obj.Train1();
+                                            break;
                                         }
                                         else{
                                             break;
@@ -198,6 +199,7 @@ int main()
                                             login obj;
                                             obj.regist();
                                             cout<<"login gin";
+                                            break;
                                         }
                                         else{
                                             break;
@@ -206,8 +208,12 @@ int main()
                                 }
                             case 0:
                                 {
-                                   exit(1);
+                                   break;
                                 }         
+                            case -1:
+                            {
+                                exit(0);
+                            }
                         }
                 }
             }
@@ -216,7 +222,7 @@ int main()
             {
                 while(1)
                 { 
-                    cout<<"1 FOR   FOR ADMIN LOGIN   \n0 FOR EXIT\n";
+                    cout<<"1 FOR   FOR ADMIN LOGIN   \n0 FOR return to menu  -1  to exit \n";
                     cin>>c;
                     switch(c)
                         {
@@ -236,10 +242,11 @@ int main()
                                         {
                                             admin obj1;
                                             obj1.addtrain();
+                                            break;
                                         }
                                         else if(v==2)
                                         {
-                                            //
+                                            break;
                                         }
                                         else{
                                             break;
@@ -248,12 +255,17 @@ int main()
                                     else{
                                         cout<<"LOGIN DETAILS NOT FOUND \n";
                                         cout<<"TRY ONCE";
+                                        break;
                                     }
                                 }
                             case 0:
                                 {
-                                    exit(1);
-                                }            
+                                    break;
+                                }         
+                            case -1:
+                            {
+                                exit(0);
+                            }   
                         }
                 }
             }
