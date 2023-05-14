@@ -1,5 +1,5 @@
 # project
-Write an application for booking railway ticket reservation system. The application should have four functionalities.
+This application is for booking railway ticket reservation system. The application is  having four functionalities.
 
 Book
 Cancel
